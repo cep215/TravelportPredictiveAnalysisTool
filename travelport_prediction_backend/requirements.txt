@@ -1,0 +1,10 @@
+pandas==0.20.2
+flask==0.12
+flask_cors
+requests
+werkzeug
+azure-storage-blob
+fbprophet
+matplotlib
+statsmodels
+sklearn

@@ -1,0 +1,25 @@
+image: node:latest
+
+cache:
+  paths:
+      - travelport/node_modules/
+      
+stages:
+   - build
+   - test
+
+build:
+   stage: build
+   script:
+      - cd travelport
+      - npm install
+   
+test:
+   stage: test
+   script:
+      - cd travelport
+      - ./node_modules/@angular/cli/bin/ng test --progress false --single-run=true --browsers PhantomJS --watch=false
+    #   - npm run e2e:ci
+
+
+      

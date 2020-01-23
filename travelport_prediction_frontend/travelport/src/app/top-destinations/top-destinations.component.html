@@ -1,0 +1,32 @@
+<div class="container col-md-8 col-md-offset-2">
+
+  <div class="col-md-12 form-group">
+
+    <div class="col-md-12" *ngIf="topDestination">
+      <canvas baseChart [(ngModel)]="baseChart" name="chart"
+              [datasets]="topDestination.datasets"
+              [labels]="topDestination.labels"
+              [chartType]="topDestination.chartType"
+              [options]="topDestination.options"
+              [colors]="topDestination.colors"
+              [legend]="topDestination.legend"
+      >
+      </canvas>
+    </div>
+  </div>
+
+  <div class="row col-md-10 col-md-offset-1">
+    <div class="input-group-lg">
+      <span class="input-group-addon">Select to view the top 5 travel destinations in:</span>
+      <span class="input-group-btn">
+      <select [(ngModel)]="selectedMonth" (change)="updateChart()"
+              class="btn btn-default form-control">
+          <option *ngFor="let month of months" [value]="month" [selected]="month">{{month}}</option>
+        </select>
+    </span>
+    </div>
+
+  </div>
+
+</div>
+

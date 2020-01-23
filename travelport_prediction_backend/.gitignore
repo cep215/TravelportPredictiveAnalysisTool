@@ -1,0 +1,8 @@
+loginDetail.py
+data_output
+venv/
+.idea/
+__pycache__
+*.pyc
+*.png
+*.csv

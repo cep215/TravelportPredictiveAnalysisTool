@@ -1,0 +1,23 @@
+<div class="container col-md-6 col-md-offset-3">
+  <div class="input-group">
+    <span class="input-group-addon">Submit an agency alias (A-E)</span>
+    <input #agencyInput type="text" class="form-control"  required [(ngModel)]="selectedAgency">
+    <span class="input-group-btn">
+      <button class="btn btn-default" [disabled]="!agencyInput.checkValidity()" (click)="displayChart()">View competitors</button>
+    </span>
+  </div>
+
+</div>
+
+
+<div class="col-md-10 col-md-offset-1" *ngIf="competitorChart">
+  <canvas baseChart
+          [datasets]="competitorChart.datasets"
+          [labels]="competitorChart.labels"
+          [chartType]="competitorChart.chartType"
+          [options]="competitorChart.options"
+          [colors]="competitorChart.colors"
+          [legend]="competitorChart.legend"
+  >
+  </canvas>
+</div>

@@ -1,0 +1,52 @@
+
+<div class="container col-md-6 col-md-offset-3">
+  <div class="input-group">
+
+    <span class="input-group-addon">Submit an IATA code</span>
+    <input #agencyInput type="text" class="form-control" required [(ngModel)]="selectedDest">
+    <span class="input-group-btn">
+      <button class="btn btn-default" [disabled]="!agencyInput.checkValidity()" (click)="displayChart()">View Predictions</button>
+    </span>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="page-header row col-md-10 col-md-offset-1">
+    <h3 class="pull-left">Prophet</h3>
+    <h3 class="pull-right" *ngIf="prophetLoading">(Loading...)</h3>
+  </div>
+
+  <div class="col-md-10 col-md-offset-1" *ngFor="let predictionGraph of prophetPredictionList">
+    <canvas baseChart
+            [datasets]="predictionGraph.datasets"
+            [labels]="predictionGraph.labels"
+            [chartType]="predictionGraph.chartType"
+            [options]="predictionGraph.options"
+            [colors]="predictionGraph.colors"
+            [legend]="predictionGraph.legend"
+    >
+    </canvas>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="page-header row col-md-10 col-md-offset-1">
+    <h3 class="pull-left">ARIMA</h3>
+    <h3 class="pull-right" *ngIf="arimaLoading">(Loading...)</h3>
+  </div>
+
+  <div class="col-md-10 col-md-offset-1" *ngFor="let predictionGraph of arimaPredictionList">
+    <canvas baseChart
+            [datasets]="predictionGraph.datasets"
+            [labels]="predictionGraph.labels"
+            [chartType]="predictionGraph.chartType"
+            [options]="predictionGraph.options"
+            [colors]="predictionGraph.colors"
+            [legend]="predictionGraph.legend"
+    >
+    </canvas>
+  </div>
+</div>
+

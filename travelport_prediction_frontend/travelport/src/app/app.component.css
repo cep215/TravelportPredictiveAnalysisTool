@@ -1,0 +1,9 @@
+.centered {
+  text-align: center;
+  width: 100%;
+}
+.centeredItem {
+  float: none;
+  display: inline-block;
+}
+
